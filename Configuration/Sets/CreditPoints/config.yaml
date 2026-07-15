@@ -1,0 +1,4 @@
+name: goldene-zeiten/products-credit-points
+label: Products Credit Points
+dependencies:
+  - goldene-zeiten/products-core

@@ -1,0 +1,31 @@
+categories:
+  creditPoints:
+    label: 'LLL:EXT:products_credit_points/Resources/Private/Language/locallang_settings.xlf:category.creditPoints'
+    parent: products
+
+settings:
+  products.creditPoints.enabled:
+    type: bool
+    default: false
+    label: 'LLL:EXT:products_credit_points/Resources/Private/Language/locallang_settings.xlf:setting.products.creditPoints.enabled'
+    category: creditPoints
+  products.creditPoints.moneyPerPoint:
+    type: number
+    default: 0.10
+    label: 'LLL:EXT:products_credit_points/Resources/Private/Language/locallang_settings.xlf:setting.products.creditPoints.moneyPerPoint'
+    category: creditPoints
+  products.creditPoints.earningMode:
+    type: string
+    default: 'perProduct'
+    label: 'LLL:EXT:products_credit_points/Resources/Private/Language/locallang_settings.xlf:setting.products.creditPoints.earningMode'
+    category: creditPoints
+  products.creditPoints.earningTiers:
+    type: stringlist
+    default: []
+    label: 'LLL:EXT:products_credit_points/Resources/Private/Language/locallang_settings.xlf:setting.products.creditPoints.earningTiers'
+    category: creditPoints
+  products.creditPoints.priceFactor:
+    type: number
+    default: 0.0
+    label: 'LLL:EXT:products_credit_points/Resources/Private/Language/locallang_settings.xlf:setting.products.creditPoints.priceFactor'
+    category: creditPoints

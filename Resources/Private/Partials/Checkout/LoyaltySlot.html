@@ -1,0 +1,15 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<f:comment>
+    Overrides the core checkout review's no-op loyalty slot: when this extension is installed and the
+    customer has a balance, it renders the credit-points redeem field. The "spendPoints" value is read
+    back off the request by the loyalty provider, so the core checkout never has to know about it. The
+    labels resolve from this extension because the core plugin renders the partial in its own context.
+</f:comment>
+<f:if condition="{creditPointsBalance} > 0">
+    <div class="mb-3">
+        <label for="spendPoints"><f:translate key="credit_points_balance" extensionName="ProductsCreditPoints" arguments="{0: creditPointsBalance}" /></label>
+        <input type="number" name="spendPoints" min="0" max="{creditPointsBalance}" value="0" class="form-control" id="spendPoints" />
+        <span class="form-text"><f:translate key="credit_points_spend_label" extensionName="ProductsCreditPoints" /></span>
+    </div>
+</f:if>
+</html>

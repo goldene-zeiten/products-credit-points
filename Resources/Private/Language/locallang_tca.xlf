@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="EXT:products_credit_points/Resources/Private/Language/locallang_tca.xlf" date="2026-07-15T05:00:00Z" product-name="products_credit_points">
+		<header/>
+		<body>
+			<trans-unit id="tx_products_domain_model_product.credit_points" resname="tx_products_domain_model_product.credit_points">
+				<source>Credit points earned per unit</source>
+			</trans-unit>
+			<trans-unit id="tx_products_domain_model_creditpointstransaction" resname="tx_products_domain_model_creditpointstransaction">
+				<source>Credit Points Transaction</source>
+			</trans-unit>
+			<trans-unit id="tx_products_domain_model_creditpointstransaction.frontend_user" resname="tx_products_domain_model_creditpointstransaction.frontend_user">
+				<source>Frontend User</source>
+			</trans-unit>
+			<trans-unit id="tx_products_domain_model_creditpointstransaction.order_uid" resname="tx_products_domain_model_creditpointstransaction.order_uid">
+				<source>Order UID</source>
+			</trans-unit>
+			<trans-unit id="tx_products_domain_model_creditpointstransaction.points" resname="tx_products_domain_model_creditpointstransaction.points">
+				<source>Points</source>
+			</trans-unit>
+			<trans-unit id="tx_products_domain_model_creditpointstransaction.type" resname="tx_products_domain_model_creditpointstransaction.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_products_domain_model_creditpointstransaction.type.earn" resname="tx_products_domain_model_creditpointstransaction.type.earn">
+				<source>Earned</source>
+			</trans-unit>
+			<trans-unit id="tx_products_domain_model_creditpointstransaction.type.redeem" resname="tx_products_domain_model_creditpointstransaction.type.redeem">
+				<source>Redeemed</source>
+			</trans-unit>
+			<trans-unit id="tx_products_domain_model_creditpointstransaction.type.adjustment" resname="tx_products_domain_model_creditpointstransaction.type.adjustment">
+				<source>Manual adjustment</source>
+			</trans-unit>
+			<trans-unit id="tx_products_domain_model_creditpointstransaction.created" resname="tx_products_domain_model_creditpointstransaction.created">
+				<source>Created</source>
+			</trans-unit>
+			<trans-unit id="tx_products_domain_model_creditpointsbalance" resname="tx_products_domain_model_creditpointsbalance">
+				<source>Credit Points Balance</source>
+			</trans-unit>
+			<trans-unit id="tx_products_domain_model_creditpointsbalance.frontend_user" resname="tx_products_domain_model_creditpointsbalance.frontend_user">
+				<source>Frontend User</source>
+			</trans-unit>
+			<trans-unit id="tx_products_domain_model_creditpointsbalance.balance" resname="tx_products_domain_model_creditpointsbalance.balance">
+				<source>Balance</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="EXT:products_credit_points/Resources/Private/Language/locallang_settings.xlf" date="2026-07-15T05:00:00Z" product-name="products_credit_points">
+		<header/>
+		<body>
+			<trans-unit id="category.creditPoints" resname="category.creditPoints">
+				<source>Credit Points</source>
+			</trans-unit>
+			<trans-unit id="setting.products.creditPoints.enabled" resname="setting.products.creditPoints.enabled">
+				<source>Credit points enabled</source>
+			</trans-unit>
+			<trans-unit id="setting.products.creditPoints.moneyPerPoint" resname="setting.products.creditPoints.moneyPerPoint">
+				<source>Money value of one credit point when redeemed</source>
+			</trans-unit>
+			<trans-unit id="setting.products.creditPoints.earningMode" resname="setting.products.creditPoints.earningMode">
+				<source>Credit-point earning mode (perProduct|basketTiered|autoPriceFactor)</source>
+			</trans-unit>
+			<trans-unit id="setting.products.creditPoints.earningTiers" resname="setting.products.creditPoints.earningTiers">
+				<source>basketTiered mode thresholds as "amount:points" pairs, e.g. "50.00:10" (highest qualifying threshold wins, not summed)</source>
+			</trans-unit>
+			<trans-unit id="setting.products.creditPoints.priceFactor" resname="setting.products.creditPoints.priceFactor">
+				<source>autoPriceFactor mode: points earned per whole currency unit for lines without their own explicit credit-points value</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,20 @@
+"pages",,,,,,
+,"uid","pid","sorting","deleted","title","slug"
+,1,0,256,0,"Root","/"
+,2,1,256,0,"Shop","/shop"
+
+"tx_products_domain_model_taxclass",,,
+,"uid","title","code"
+,1,"Standard Tax","STANDARD"
+
+"tx_products_domain_model_product",,,,,,
+,"uid","pid","title","slug","price","tax_class","credit_points"
+,1,2,"Product 1","product-1","100.00",1,10
+,2,2,"Product 2","product-2","50.00",1,5
+
+"tx_products_domain_model_creditpointstransaction",,,,
+,"uid","pid","frontend_user","points","type"
+,1,1,1,100,"earn"
+,2,1,1,-30,"redeem"
+,3,1,2,50,"earn"
+,4,1,3,20,"adjustment"

@@ -1,0 +1,18 @@
+<table class="table table-striped w-auto">
+    <thead>
+        <tr>
+            <th><f:translate key="LLL:EXT:products_credit_points/Resources/Private/Language/locallang_be.xlf:order.column.credit_points_type" /></th>
+            <th><f:translate key="LLL:EXT:products_credit_points/Resources/Private/Language/locallang_be.xlf:order.column.credit_points_points" /></th>
+            <th><f:translate key="LLL:EXT:products_core/Resources/Private/Language/locallang_be.xlf:order.column.date" /></th>
+        </tr>
+    </thead>
+    <tbody>
+        <f:for each="{ledger}" as="ledgerRow">
+            <tr>
+                <td>{ledgerRow.type}</td>
+                <td>{ledgerRow.points}</td>
+                <td>{ledgerRow.created}</td>
+            </tr>
+        </f:for>
+    </tbody>
+</table>

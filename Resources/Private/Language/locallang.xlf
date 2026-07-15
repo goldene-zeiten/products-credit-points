@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="EXT:products_credit_points/Resources/Private/Language/locallang.xlf" date="2026-07-15T05:00:00Z" product-name="products_credit_points">
+		<header/>
+		<body>
+			<trans-unit id="credit_points_balance" resname="credit_points_balance">
+				<source>You have %d credit points available.</source>
+			</trans-unit>
+			<trans-unit id="credit_points_spend_label" resname="credit_points_spend_label">
+				<source>Spend credit points</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

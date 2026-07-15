@@ -1,0 +1,13 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  GoldeneZeiten\Products\CreditPoints\:
+    resource: '../Classes/*'
+
+  # Public so a functional test can fetch it directly; its only runtime consumer is the core order-detail
+  # panel registry, whose tagged iterator would otherwise inline it into a non-fetchable service.
+  GoldeneZeiten\Products\CreditPoints\Backend\OrderDetail\CreditPointsLedgerPanel:
+    public: true

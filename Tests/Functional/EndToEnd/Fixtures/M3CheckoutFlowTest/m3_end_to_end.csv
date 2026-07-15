@@ -1,0 +1,30 @@
+"pages",,,,,,
+,"uid","pid","sorting","deleted","title","slug"
+,1,0,256,0,"Root","/"
+,2,1,256,0,"Shop","/shop"
+
+"tx_products_domain_model_taxclass",,,
+,"uid","title","code"
+,1,"Standard Tax","STANDARD"
+
+"tx_products_domain_model_taxrate",,,,
+,"uid","tax_class","country","rate"
+,1,1,"",19.00
+
+"tx_products_domain_model_product",,,,,,,
+,"uid","pid","title","slug","price","tax_class","in_stock","credit_points"
+,1,2,"Main Product","main-product","100.00",1,100,10
+,2,2,"Related Product","related-product","20.00",1,100,0
+
+"tx_products_product_related_mm",,,
+,"uid_local","uid_foreign","sorting"
+,1,2,1
+
+"tx_products_domain_model_voucher",,,,,,,
+,"uid","pid","code","discount_type","discount_value","combinable","usage_limit"
+,1,1,"COMBO1","percentage","10.00",1,0
+,2,1,"SOLO","fixed","5.00",0,0
+
+"tx_products_domain_model_creditpointstransaction",,,,
+,"uid","pid","frontend_user","points","type"
+,1,1,7,100,"earn"

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="EXT:products_credit_points/Resources/Private/Language/locallang_be.xlf" date="2026-07-15T05:00:00Z" product-name="products_credit_points">
+		<header/>
+		<body>
+			<trans-unit id="tt_content.tx_products_list_mode.affordable" resname="tt_content.tx_products_list_mode.affordable">
+				<source>Affordable (within my credit points)</source>
+			</trans-unit>
+			<trans-unit id="order.column.credit_points_type" resname="order.column.credit_points_type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="order.column.credit_points_points" resname="order.column.credit_points_points">
+				<source>Points</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

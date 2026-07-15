@@ -1,0 +1,5 @@
+"tx_products_domain_model_creditpointstransaction",,,,,
+,"uid","frontend_user","points","type"
+,1,"5","50","earn"
+,2,"5","-20","redeem"
+,3,"5","20","earn"

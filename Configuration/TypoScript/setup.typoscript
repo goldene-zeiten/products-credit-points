@@ -1,0 +1,4 @@
+# The credit-points spend form is rendered on the core checkout review page, which the core plugin
+# renders from a no-op "LoyaltySlot" partial stub. This extension overrides that stub by adding its own
+# partial path at a higher priority, so the review page shows the redeem field only when installed.
+plugin.tx_productscore.view.partialRootPaths.110 = EXT:products_credit_points/Resources/Private/Partials/

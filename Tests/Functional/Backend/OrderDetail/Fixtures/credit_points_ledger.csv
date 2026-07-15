@@ -1,0 +1,3 @@
+"tx_products_domain_model_creditpointstransaction",,,,,
+,"uid","pid","frontend_user","points","type","order_uid"
+,1,2,5,20,"earn",1
