@@ -5,6 +5,13 @@
   "license": [
     "GPL-2.0-or-later"
   ],
+  "authors": [
+    {
+      "name": "Markus Hofmann",
+      "email": "typo3@calien.de",
+      "role": "Developer"
+    }
+  ],
   "require": {
     "php": "^8.2 || ^8.3 || ^8.4 || ^8.5",
     "goldene-zeiten/products-core": "^1.0",
