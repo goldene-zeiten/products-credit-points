@@ -22,12 +22,9 @@ use GoldeneZeiten\Products\CreditPoints\Service\Exception\InsufficientCreditPoin
 use TYPO3\CMS\Extbase\Persistence\PersistenceManagerInterface;
 
 /**
- * The credit-points programme, seen through the loyalty contract. It ships with the extension so a shop
- * has loyalty out of the box, but the checkout reaches it only as a loyalty provider, which is what lets
- * it move into its own extension later without the core changing.
- *
- * The earn and redeem bookings used to live in the order creation service; they belong to the programme,
- * so they moved here. The atomic debit still guards against a balance being spent twice.
+ * The credit-points programme, seen through the loyalty contract: it ships with the extension so a shop
+ * has loyalty out of the box, and the checkout reaches it only as a loyalty provider. The atomic debit
+ * guards against a balance being spent twice.
  */
 final class CreditPointsLoyaltyProvider implements LoyaltyProviderInterface
 {

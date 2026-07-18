@@ -20,7 +20,7 @@ defined('TYPO3') or die();
 
     ExtensionManagementUtility::addTCAcolumns('tx_products_domain_model_product', $newColumnsArray);
 
-    // Place it at the end of the product's "marketing" tab, where it used to sit while the core owned it.
+    // Place it at the end of the product's "marketing" tab.
     ExtensionManagementUtility::addToAllTCAtypes(
         'tx_products_domain_model_product',
         'credit_points',
