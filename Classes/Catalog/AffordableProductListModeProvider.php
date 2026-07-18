@@ -79,7 +79,7 @@ final class AffordableProductListModeProvider implements ProductListModeProvider
     {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable(self::PRODUCT_TABLE);
 
-        return array_map('intval', $queryBuilder
+        $result = $queryBuilder
             ->select('uid')
             ->from(self::PRODUCT_TABLE)
             ->where(
@@ -87,7 +87,11 @@ final class AffordableProductListModeProvider implements ProductListModeProvider
                 $queryBuilder->expr()->lte('credit_points', $queryBuilder->createNamedParameter($balance, Connection::PARAM_INT)),
             )
             ->orderBy('credit_points', 'ASC')
-            ->executeQuery()
-            ->fetchFirstColumn());
+            ->executeQuery();
+        $uids = [];
+        while (($uid = $result->fetchOne()) !== false) {
+            $uids[] = (int)$uid;
+        }
+        return $uids;
     }
 }

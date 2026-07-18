@@ -51,22 +51,22 @@ final readonly class CreditPointsLedgerPanel implements OrderDetailPanelInterfac
     {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable(self::LEDGER_TABLE);
         $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-        $rows = $queryBuilder
+        $result = $queryBuilder
             ->select('*')
             ->from(self::LEDGER_TABLE)
             ->where(
                 $queryBuilder->expr()->eq('order_uid', $queryBuilder->createNamedParameter($orderUid, Connection::PARAM_INT))
             )
-            ->executeQuery()
-            ->fetchAllAssociative();
+            ->executeQuery();
 
-        return array_map(
-            static fn(array $row): array => [
+        $ledger = [];
+        while ($row = $result->fetchAssociative()) {
+            $ledger[] = [
                 'type' => (string)$row['type'],
                 'points' => (int)$row['points'],
                 'created' => (int)($row['created'] ?? 0) > 0 ? date('Y-m-d H:i', (int)$row['created']) : null,
-            ],
-            $rows,
-        );
+            ];
+        }
+        return $ledger;
     }
 }
