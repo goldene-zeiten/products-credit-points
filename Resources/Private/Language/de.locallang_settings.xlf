@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" datatype="plaintext" original="EXT:products_credit_points/Resources/Private/Language/de.locallang_settings.xlf" date="2026-07-15T05:00:00Z" product-name="products_credit_points">
+		<header/>
+		<body>
+			<trans-unit id="category.creditPoints" resname="category.creditPoints">
+				<source>Credit Points</source>
+				<target>Bonuspunkte</target>
+			</trans-unit>
+			<trans-unit id="setting.products.creditPoints.enabled" resname="setting.products.creditPoints.enabled">
+				<source>Credit points enabled</source>
+				<target>Bonuspunkte aktiviert</target>
+			</trans-unit>
+			<trans-unit id="setting.products.creditPoints.moneyPerPoint" resname="setting.products.creditPoints.moneyPerPoint">
+				<source>Money value of one credit point when redeemed</source>
+				<target>Geldwert eines Bonuspunkts beim Einlösen</target>
+			</trans-unit>
+			<trans-unit id="setting.products.creditPoints.earningMode" resname="setting.products.creditPoints.earningMode">
+				<source>Credit-point earning mode (perProduct|basketTiered|autoPriceFactor)</source>
+				<target>Modus für die Gutschrift von Bonuspunkten (perProduct|basketTiered|autoPriceFactor)</target>
+			</trans-unit>
+			<trans-unit id="setting.products.creditPoints.earningTiers" resname="setting.products.creditPoints.earningTiers">
+				<source>basketTiered mode thresholds as "amount:points" pairs, e.g. "50.00:10" (highest qualifying threshold wins, not summed)</source>
+				<target>Schwellenwerte für den Modus basketTiered als Paare „Betrag:Punkte“, z. B. „50.00:10“ (es gilt der höchste erreichte Schwellenwert, Werte werden nicht addiert)</target>
+			</trans-unit>
+			<trans-unit id="setting.products.creditPoints.priceFactor" resname="setting.products.creditPoints.priceFactor">
+				<source>autoPriceFactor mode: points earned per whole currency unit for lines without their own explicit credit-points value</source>
+				<target>Modus autoPriceFactor: Bonuspunkte pro ganzer Währungseinheit für Positionen ohne eigenen Bonuspunkte-Wert</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
