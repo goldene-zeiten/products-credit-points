@@ -39,6 +39,14 @@
 				<source>Manual adjustment</source>
 				<target>Manuelle Korrektur</target>
 			</trans-unit>
+			<trans-unit id="tx_products_domain_model_creditpointstransaction.type.refund" resname="tx_products_domain_model_creditpointstransaction.type.refund">
+				<source>Refunded (order cancelled)</source>
+				<target>Erstattet (Bestellung storniert)</target>
+			</trans-unit>
+			<trans-unit id="tx_products_domain_model_creditpointstransaction.type.revoke" resname="tx_products_domain_model_creditpointstransaction.type.revoke">
+				<source>Revoked (order cancelled)</source>
+				<target>Entzogen (Bestellung storniert)</target>
+			</trans-unit>
 			<trans-unit id="tx_products_domain_model_creditpointstransaction.created" resname="tx_products_domain_model_creditpointstransaction.created">
 				<source>Created</source>
 				<target>Erstellt</target>

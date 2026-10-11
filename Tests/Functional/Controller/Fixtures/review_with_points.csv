@@ -1,0 +1,19 @@
+"tx_products_domain_model_taxclass",,,
+,"uid","title","code"
+,1,"Standard Tax","standard"
+
+"tx_products_domain_model_taxrate",,,,
+,"uid","tax_class","country","rate"
+,1,1,"",19.00
+
+"tx_products_domain_model_product",,,,,,,
+,"uid","pid","title","slug","price","tax_class","in_stock"
+,1,2,"Product 1","product-1","100.00",1,100
+
+"fe_users",,,,,,
+,"uid","pid","disable","deleted","username","email"
+,7,2,0,0,"points-customer","points@example.com"
+
+"tx_products_domain_model_creditpointstransaction",,,,
+,"uid","pid","frontend_user","points","type"
+,1,1,7,100,"earn"

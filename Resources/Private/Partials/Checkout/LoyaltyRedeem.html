@@ -1,0 +1,17 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<f:comment>
+    Overrides the core review's no-op redeem slot: when the customer has a balance, it renders a form that
+    posts the selected points back to the review, which re-renders with the recomputed total. The order is
+    placed with the points applied here (see the LoyaltySlot partial), so it matches the total shown.
+</f:comment>
+<f:if condition="{creditPointsBalance} > 0">
+    <f:form action="review" method="post" class="mt-4">
+        <div class="mb-3">
+            <label for="spendPoints"><f:translate key="credit_points_balance" extensionName="ProductsCreditPoints" arguments="{0: creditPointsBalance}" /></label>
+            <input type="number" name="spendPoints" min="0" max="{creditPointsBalance}" value="{creditPointsSpend}" class="form-control" id="spendPoints" />
+            <span class="form-text"><f:translate key="credit_points_spend_label" extensionName="ProductsCreditPoints" /></span>
+        </div>
+        <button type="submit" class="btn btn-secondary"><f:translate key="credit_points_apply" extensionName="ProductsCreditPoints" /></button>
+    </f:form>
+</f:if>
+</html>

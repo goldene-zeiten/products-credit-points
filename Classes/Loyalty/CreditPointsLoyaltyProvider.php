@@ -56,6 +56,15 @@ final class CreditPointsLoyaltyProvider implements LoyaltyProviderInterface
         return $this->creditPointsService->getBalance($context->getFrontendUserUid());
     }
 
+    /**
+     * The points the customer asked for, limited to what their balance affords - the points the review applies
+     * and the order is placed with.
+     */
+    public function getRequestedPoints(LoyaltyContext $context): int
+    {
+        return min($this->requestedSpendPoints($context), $this->getBalance($context));
+    }
+
     public function assertRedeemable(LoyaltyContext $context): void
     {
         if (!$this->configuration($context)->isEnabled() || $this->requestedSpendPoints($context) <= 0) {

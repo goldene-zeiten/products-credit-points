@@ -11,6 +11,10 @@
 				<source>Spend credit points</source>
 				<target>Bonuspunkte einlösen</target>
 			</trans-unit>
+			<trans-unit id="credit_points_apply" resname="credit_points_apply">
+				<source>Apply credit points</source>
+				<target>Bonuspunkte anwenden</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

@@ -12,8 +12,9 @@ use GoldeneZeiten\Products\CreditPoints\Loyalty\CreditPointsLoyaltyProvider;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 /**
- * Adds the customer's credit-points balance to the checkout review view, so the loyalty slot partial this
- * extension overrides into that view can show the redeem field and its cap. With this extension absent the
+ * Adds the customer's credit-points balance and the points they selected to the checkout review view, so the
+ * loyalty partials this extension overrides into that view can show the redeem field with its cap and carry
+ * the selection into the order. With this extension absent the
  * core dispatches the event to no one and the review page carries no balance, hiding the field entirely.
  */
 final readonly class EnrichCheckoutReviewWithBalanceListener
@@ -37,5 +38,6 @@ final readonly class EnrichCheckoutReviewWithBalanceListener
         );
 
         $event->addVariable('creditPointsBalance', $this->creditPointsLoyaltyProvider->getBalance($context));
+        $event->addVariable('creditPointsSpend', $this->creditPointsLoyaltyProvider->getRequestedPoints($context));
     }
 }

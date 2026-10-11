@@ -9,6 +9,9 @@
 			<trans-unit id="credit_points_spend_label" resname="credit_points_spend_label">
 				<source>Spend credit points</source>
 			</trans-unit>
+			<trans-unit id="credit_points_apply" resname="credit_points_apply">
+				<source>Apply credit points</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
