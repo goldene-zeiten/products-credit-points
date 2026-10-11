@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace GoldeneZeiten\Products\CreditPoints\Service;
 
+use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
+use GoldeneZeiten\Products\Core\Service\Database\IsolatedWrite;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 
@@ -18,7 +20,8 @@ final class CreditPointsBalanceService
     private const LEDGER_TABLE = 'tx_products_domain_model_creditpointstransaction';
 
     public function __construct(
-        private readonly ConnectionPool $connectionPool
+        private readonly ConnectionPool $connectionPool,
+        private readonly IsolatedWrite $isolatedWrite
     ) {}
 
     public function getBalance(int $frontendUser): int
@@ -70,7 +73,9 @@ final class CreditPointsBalanceService
     }
 
     /**
-     * Idempotent: concurrent double-insert is safe (loser's constraint violation ignored).
+     * Idempotent: concurrent double-insert is safe - the loser's constraint violation is ignored. The insert
+     * runs under a savepoint, as it is reached inside the order placement's transaction, which the failed
+     * statement would otherwise abort on PostgreSQL.
      */
     private function ensureRowExists(int $frontendUser): void
     {
@@ -94,13 +99,16 @@ final class CreditPointsBalanceService
             ->executeQuery()
             ->fetchOne();
 
-        try {
-            $this->connectionPool->getConnectionForTable(self::BALANCE_TABLE)->insert(self::BALANCE_TABLE, [
+        $failure = $this->isolatedWrite->run(
+            self::BALANCE_TABLE,
+            fn() => $this->connectionPool->getConnectionForTable(self::BALANCE_TABLE)->insert(self::BALANCE_TABLE, [
                 'frontend_user' => $frontendUser,
                 'balance' => (int)($ledgerSum ?? 0),
-            ]);
-        } catch (\Doctrine\DBAL\Exception\UniqueConstraintViolationException) {
-            // Another concurrent request already created (and correctly initialized) the row.
+            ])
+        );
+        // A unique violation means another concurrent request already created (and initialized) the row.
+        if ($failure !== null && !$failure instanceof UniqueConstraintViolationException) {
+            throw $failure;
         }
     }
 }

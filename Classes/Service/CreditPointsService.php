@@ -28,13 +28,14 @@ final class CreditPointsService
     }
 
     /**
-     * Earning modes: per-product (default), tiered (highest-qualifying), or auto price factor.
+     * Earning modes: per-product (default), tiered (highest-qualifying), or auto price factor. The amount
+     * based modes earn on what the goods cost the customer after discounts and redemptions.
      */
-    public function calculateEarnedPoints(BasketViewModel $basket, CreditPointsConfiguration $configuration): int
+    public function calculateEarnedPoints(BasketViewModel $basket, CreditPointsConfiguration $configuration, Money $paidGoodsTotal): int
     {
         return match ($configuration->getEarningMode()) {
-            'basketTiered' => $this->calculateTieredPoints($basket->getTotalGross(), $configuration),
-            'autoPriceFactor' => $this->calculateAutoPriceFactorPoints($basket, $configuration),
+            'basketTiered' => $this->calculateTieredPoints($paidGoodsTotal, $configuration),
+            'autoPriceFactor' => $this->calculateAutoPriceFactorPoints($basket, $configuration, $paidGoodsTotal),
             default => $this->calculatePerProductPoints($basket),
         };
     }
@@ -48,15 +49,20 @@ final class CreditPointsService
         return $points;
     }
 
-    private function calculateAutoPriceFactorPoints(BasketViewModel $basket, CreditPointsConfiguration $configuration): int
+    /**
+     * A line without explicit points earns on its share of the paid amount - its gross scaled by what the
+     * reductions left of the whole basket.
+     */
+    private function calculateAutoPriceFactorPoints(BasketViewModel $basket, CreditPointsConfiguration $configuration, Money $paidGoodsTotal): int
     {
-        $priceFactor = $configuration->getPriceFactor();
+        $goodsCents = $basket->getTotalGross()->getCents();
+        $paidShare = $goodsCents > 0 ? max(0, $paidGoodsTotal->getCents()) / $goodsCents : 0.0;
         $points = 0;
         foreach ($basket->getItems() as $item) {
             $explicitPoints = $this->productCreditPoints($item);
             $points += $explicitPoints > 0
                 ? $explicitPoints * $item->getQuantity()
-                : (int)floor($item->getLineTotalGross()->getCents() / 100 * $priceFactor);
+                : (int)floor(round($item->getLineTotalGross()->getCents() * $paidShare) / 100 * $configuration->getPriceFactor());
         }
         return $points;
     }

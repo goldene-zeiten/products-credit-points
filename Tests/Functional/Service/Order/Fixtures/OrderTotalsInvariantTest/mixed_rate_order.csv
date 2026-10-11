@@ -1,0 +1,35 @@
+"pages",,,,,,
+,"uid","pid","sorting","deleted","title","slug"
+,1,0,256,0,"Root","/"
+,2,1,256,0,"Shop","/shop"
+
+"tx_products_domain_model_taxclass",,,
+,"uid","title","code"
+,1,"Standard Tax","standard"
+,2,"Reduced Tax","reduced"
+
+"tx_products_domain_model_taxrate",,,,
+,"uid","tax_class","country","rate"
+,1,1,"DE","19.00"
+,2,2,"DE","7.00"
+
+"tx_products_domain_model_product",,,,,,,,,
+,"uid","pid","title","slug","price","tax_class","in_stock","weight","deposit","credit_points"
+,1,2,"Standard Product","standard-product","119.00",1,100,500,"0.00",0
+,2,2,"Reduced Product","reduced-product","10.70",2,100,500,"0.25",0
+
+"tx_products_domain_model_shippingmethod",,,,,,,,
+,"uid","pid","title","country","min_order_value","max_order_value","min_weight","max_weight","rate"
+,1,1,"Standard DE","DE","0.00","0.00",0,0,"5.95"
+
+"tx_products_domain_model_handlingfee",,,,,,,,
+,"uid","pid","title","country","min_order_value","max_order_value","min_weight","max_weight","rate"
+,1,1,"Standard DE","DE","0.00","0.00",0,0,"2.38"
+
+"tx_products_domain_model_voucher",,,,,,,
+,"uid","pid","code","discount_type","discount_value","combinable","waives_shipping_cost"
+,1,1,"TENOFF","percentage","10.00",1,1
+
+"tx_products_domain_model_creditpointstransaction",,,,
+,"uid","pid","frontend_user","points","type"
+,1,1,5,100,"earn"

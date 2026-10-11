@@ -62,6 +62,14 @@ return [
                         'label' => 'LLL:EXT:products_credit_points/Resources/Private/Language/locallang_tca.xlf:tx_products_domain_model_creditpointstransaction.type.adjustment',
                         'value' => CreditPointsTransactionType::ADJUSTMENT->value,
                     ],
+                    [
+                        'label' => 'LLL:EXT:products_credit_points/Resources/Private/Language/locallang_tca.xlf:tx_products_domain_model_creditpointstransaction.type.refund',
+                        'value' => CreditPointsTransactionType::REFUND->value,
+                    ],
+                    [
+                        'label' => 'LLL:EXT:products_credit_points/Resources/Private/Language/locallang_tca.xlf:tx_products_domain_model_creditpointstransaction.type.revoke',
+                        'value' => CreditPointsTransactionType::REVOKE->value,
+                    ],
                 ],
             ],
         ],

@@ -62,7 +62,8 @@ final class CreditPointsServiceTest extends AbstractFunctionalTestCase
     public function earnedPointsSumTheProductRateAcrossBasketLinesAndQuantities(): void
     {
         $subject = $this->subject();
-        $this->assertSame(10 * 2 + 5 * 3, $subject->calculateEarnedPoints($this->basketViewModel(), $this->configuration()));
+        $basket = $this->basketViewModel();
+        $this->assertSame(10 * 2 + 5 * 3, $subject->calculateEarnedPoints($basket, $this->configuration(), $basket->getTotalGross()));
     }
 
     #[Test]
@@ -70,8 +71,9 @@ final class CreditPointsServiceTest extends AbstractFunctionalTestCase
     {
         $subject = $this->subject();
         $configuration = $this->configuration(earningMode: 'perProduct', earningTiers: ['0.00:999']);
+        $basket = $this->basketViewModel();
 
-        $this->assertSame(10 * 2 + 5 * 3, $subject->calculateEarnedPoints($this->basketViewModel(), $configuration));
+        $this->assertSame(10 * 2 + 5 * 3, $subject->calculateEarnedPoints($basket, $configuration, $basket->getTotalGross()));
     }
 
     /**
@@ -84,7 +86,19 @@ final class CreditPointsServiceTest extends AbstractFunctionalTestCase
         $subject = $this->subject();
         $configuration = $this->configuration(earningMode: 'basketTiered', earningTiers: $earningTiers);
 
-        $this->assertSame($expectedPoints, $subject->calculateEarnedPoints($this->basketWithTotal($basketTotal), $configuration));
+        $basket = $this->basketWithTotal($basketTotal);
+
+        $this->assertSame($expectedPoints, $subject->calculateEarnedPoints($basket, $configuration, $basket->getTotalGross()));
+    }
+
+    #[Test]
+    public function basketTieredModeQualifiesByThePaidAmount(): void
+    {
+        $subject = $this->subject();
+        $configuration = $this->configuration(earningMode: 'basketTiered', earningTiers: ['50.00:10', '100.00:25']);
+
+        // Goods worth 150.00, of which discounts and redemptions left 75.00 to pay.
+        $this->assertSame(10, $subject->calculateEarnedPoints($this->basketWithTotal('150.00'), $configuration, Money::fromDecimalString('75.00')));
     }
 
     public static function basketTieredModeProvider(): \Generator
@@ -100,8 +114,9 @@ final class CreditPointsServiceTest extends AbstractFunctionalTestCase
     {
         $subject = $this->subject();
         $configuration = $this->configuration(earningMode: 'autoPriceFactor', priceFactor: 1.0);
+        $basket = $this->basketViewModel();
 
-        $this->assertSame(10 * 2 + 5 * 3, $subject->calculateEarnedPoints($this->basketViewModel(), $configuration));
+        $this->assertSame(10 * 2 + 5 * 3, $subject->calculateEarnedPoints($basket, $configuration, $basket->getTotalGross()));
     }
 
     #[Test]
@@ -117,7 +132,7 @@ final class CreditPointsServiceTest extends AbstractFunctionalTestCase
         $basket = new BasketViewModel([$item], $lineTotal, $lineTotal, Money::fromCents(0), 'EUR');
 
         // lineTotalGross 30.00 * priceFactor 2.0 = 60 points
-        $this->assertSame(60, $subject->calculateEarnedPoints($basket, $configuration));
+        $this->assertSame(60, $subject->calculateEarnedPoints($basket, $configuration, $basket->getTotalGross()));
     }
 
     #[Test]

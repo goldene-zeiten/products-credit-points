@@ -1,0 +1,17 @@
+"tx_products_domain_model_order",,,,,,
+,"uid","pid","order_number","status","payment_status","frontend_user"
+,1,0,"ORD-1","pending","open",5
+,2,0,"ORD-2","pending","open",6
+
+"tx_products_domain_model_creditpointstransaction",,,,,
+,"uid","pid","frontend_user","order_uid","points","type"
+,1,1,5,0,100,"earn"
+,2,1,5,1,-30,"redeem"
+,3,1,5,1,20,"earn"
+,4,1,6,2,50,"earn"
+,5,1,6,3,-45,"redeem"
+
+"tx_products_domain_model_creditpointsbalance",,
+,"frontend_user","balance"
+,5,90
+,6,5

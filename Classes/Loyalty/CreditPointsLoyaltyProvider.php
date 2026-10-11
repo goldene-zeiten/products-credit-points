@@ -109,7 +109,7 @@ final class CreditPointsLoyaltyProvider implements LoyaltyProviderInterface
         if (!$configuration->isEnabled() || $context->getFrontendUserUid() === 0) {
             return;
         }
-        $earned = $this->creditPointsService->calculateEarnedPoints($context->getBasketViewModel(), $configuration);
+        $earned = $this->creditPointsService->calculateEarnedPoints($context->getBasketViewModel(), $configuration, $context->getRemainingGoodsTotal());
         if ($earned <= 0) {
             return;
         }

@@ -30,6 +30,12 @@
 			<trans-unit id="tx_products_domain_model_creditpointstransaction.type.adjustment" resname="tx_products_domain_model_creditpointstransaction.type.adjustment">
 				<source>Manual adjustment</source>
 			</trans-unit>
+			<trans-unit id="tx_products_domain_model_creditpointstransaction.type.refund" resname="tx_products_domain_model_creditpointstransaction.type.refund">
+				<source>Refunded (order cancelled)</source>
+			</trans-unit>
+			<trans-unit id="tx_products_domain_model_creditpointstransaction.type.revoke" resname="tx_products_domain_model_creditpointstransaction.type.revoke">
+				<source>Revoked (order cancelled)</source>
+			</trans-unit>
 			<trans-unit id="tx_products_domain_model_creditpointstransaction.created" resname="tx_products_domain_model_creditpointstransaction.created">
 				<source>Created</source>
 			</trans-unit>
