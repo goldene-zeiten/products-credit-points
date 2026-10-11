@@ -142,7 +142,7 @@ final class M3CheckoutFlowTest extends AbstractFunctionalTestCase
 
     private function address(): Address
     {
-        return new Address(email: 'buyer@example.com', country: 'DE');
+        return new Address(email: 'buyer@example.com', firstName: 'Jane', lastName: 'Doe', street: 'Main Street 1', zip: '10115', city: 'Berlin', country: 'DE');
     }
 
     /**
