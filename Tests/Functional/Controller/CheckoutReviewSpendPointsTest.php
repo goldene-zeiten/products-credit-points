@@ -77,7 +77,7 @@ final class CheckoutReviewSpendPointsTest extends AbstractFrontendTestCase
     {
         $body = (string)$this->executeFrontendSubRequest($this->reviewRequest(null))->getBody();
 
-        $this->assertMatchesRegularExpression('#order-summary-total.*?<strong>100\.00 EUR</strong>#s', $body);
+        $this->assertMatchesRegularExpression('#order-summary-total.*?<strong>€100\.00</strong>#s', $body);
         $this->assertStringContainsString('name="spendPoints"', $body);
     }
 
@@ -86,7 +86,7 @@ final class CheckoutReviewSpendPointsTest extends AbstractFrontendTestCase
     {
         $body = (string)$this->executeFrontendSubRequest($this->reviewRequest('30'))->getBody();
 
-        $this->assertMatchesRegularExpression('#order-summary-total.*?<strong>97\.00 EUR</strong>#s', $body);
+        $this->assertMatchesRegularExpression('#order-summary-total.*?<strong>€97\.00</strong>#s', $body);
     }
 
     /**

@@ -5,7 +5,7 @@
     <extension class="\T3Docs\Typo3DocsTheme\DependencyInjection\Typo3DocsThemeExtension"
                project-home="https://extensions.typo3.org/extension/products_credit_points/"
                typo3-core-preferred="13"
-               interlink-shortcode="products_credit_points"
+               interlink-shortcode="goldene-zeiten/products-credit-points"
     />
     <project title="Products Credit Points"
              release="1.0"
